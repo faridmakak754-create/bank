@@ -1,0 +1,8 @@
+{
+  "name": "tailwind-site",
+  "compatibility_date": "2026-01-31",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./"  // folder containing index.html and style.css
+  }
+}
