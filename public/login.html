@@ -24,7 +24,8 @@
                 <a href="#" class=" hover:text-green-300 hover:border-b-2 hover:border-yellow-400">Pricing</a>
                 <a href="#" class=" hover:text-green-300 hover:border-b-2 hover:border-yellow-400">About</a>
                 <a href="#" class=" hover:text-green-300 hover:border-b-2 hover:border-yellow-400">Contact</a>
-                <a href="/login.html" class="bg-[#24df68] font-semibold px-5 py-2 rounded-md hover:bg-[#7aec7a]">Login</a>
+                <a href="/login.html"
+                    class="bg-[#24df68] font-semibold px-5 py-2 rounded-md hover:bg-[#7aec7a]">Login</a>
             </div>
 
             <div id="sidebarBtn" class="md:hidden text-2xl text-green-500">
@@ -55,14 +56,16 @@
         </div>
 
     </div>
+    <!-- main -->
     <main class="bg-gradient-to-bl from-green-700 via-green-200 to-blue-900">
         <!-- login -->
         <section class="max-w-[90%] mx-auto py-16">
             <div class="flex items-center gap-6 pb-10 max-lg:flex-col-reverse">
 
-                <div class="w-full bg-gradient-to-br from-green-600 to-green-800 max-w-[400px] rounded-md shadow-sm shadow-green-800">
+                <div
+                    class="w-full bg-gradient-to-br from-green-600 to-green-800 max-w-[400px] rounded-md shadow-sm shadow-green-800">
 
-                    <form action="UsersLoginServlet" class="flex flex-col  gap-2 p-6 ">
+                    <form action="UsersLoginServlet" method="post" class="flex flex-col  gap-2 p-6 ">
                         <h3 class="text-center text-white/90 text-xl font-semibold">Internet Banking Login</h3>
                         <label class="text-lg text-white/90 font-semibold">Email :</label>
                         <input type="email" placeholder="Enter Your Email" name="user_email" required
@@ -70,14 +73,15 @@
                         <label class="text-lg text-white/90 font-semibold">Password :</label>
                         <input type="password" placeholder="Enter your Password" name="user_password"
                             class="bg-white py-2 outline-none px-2 rounded-sm mb-2">
-                        <div class="flex flex-col items-center gap-2">
-                            <input type="submit" value="Login"
-                                class="bg-green-200 w-24 py-1.5 font-semibold rounded-sm">
-                            <a href="#" class="text-white/90 ">New User ? Register</a>
-                        </div>
 
+                        <input type="submit" value="Login"
+                            class="bg-green-200 w-24 py-1.5 font-semibold rounded-sm cursor-pointer self-center">
 
                     </form>
+                    <div class="flex items-center justify-center pb-6">
+                        <button onclick="openModal()" class="text-white cursor-pointer ">New User ? Register</button>
+                    </div>
+
                 </div>
 
                 <div
@@ -89,6 +93,55 @@
                 </div>
 
             </div>
+
+            <!-- MODAL -->
+            <div id="modal" class="fixed  inset-0 hidden  z-50 flex items-center justify-center px-2">
+
+                <!-- Modal Box -->
+                <div
+                    class="bg-gradient-to-br from-green-700/80 via-green-800/70 to-green-900/60 w-full max-w-[500px] rounded-lg p-6 relative">
+
+                    <!-- Close button -->
+                    <button onclick="closeModal()"
+                        class="absolute top-3 right-3 text-white text-4xl">&times;</button>
+
+                    <h2 class="text-xl font-bold mb-4 text-white">Register</h2>
+
+                    <form action="UsersRegisterServlet" method="post" class="flex flex-col gap-6  text-sm font-bold">
+                        <div class="flex  items-center gap-3">
+                            <label class="w-18">Full Name</label>
+                            <input type="text" name="user_name" placeholder="Enter your Name"
+                                class="bg-white py-2 rounded-md px-2 outline-none w-[80%]">
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <label class="w-18">Address</label>
+                            <input type="text" name="user_address" placeholder="Enter your Adddress" 
+                                class="bg-white py-2 rounded-md px-2  outline-none w-[80%]">
+                        </div>
+                        <div  class="flex items-center gap-3">
+                            <label class="w-18">Email</label>
+                            <input type="email" placeholder="Enter your Full Nmae" name="user_email"
+                            class="bg-white py-2 rounded-md px-2 outline-none w-[80%]">
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <label class="w-18">Phone</label>
+                            <input type="text" name="user_phone" placeholder="Enter your phone number" required
+                             class="bg-white py-2 rounded-md px-2 outline-none w-[80%]">
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <label class="w-18">Password</label>
+                            <input type="password" name="user_password" placeholder="Enter your password" required
+                             class="bg-white py-2 rounded-md px-2 outline-none w-[80%]">
+                        </div>
+
+                        <input type="submit" value="Register Now" class="bg-green-50/80 py-1.5 rounded-md px-2 text-xl text-gray-700 cursor-pointer">
+
+                    </form>
+
+
+                </div>
+            </div>
+
 
             <!-- alert -->
             <div class="text-white font-semibold">
@@ -102,6 +155,7 @@
             </div>
 
         </section>
+
 
 
     </main>
@@ -174,7 +228,21 @@
                 sidebar.classList.add("-left-64");
             }
         });
+
+
+        function openModal() {
+            document.getElementById("modal").classList.remove("hidden");
+            document.body.classList.add("overflow-hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("modal").classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+        }
+
     </script>
+
+
 
 </body>
 
