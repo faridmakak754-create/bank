@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body class="bg-gray-50">
+    <!-- NAVBAR -->
+    <nav class="bg-green-800">
+        <div class="max-w-[95%] mx-auto flex justify-between items-center h-20">
+            <div>
+                <h1 class="text-2xl font-bold text-white ">FINX BANK</h1>
+                <p class="text-sm text-gray-100">User Dashboard</p>
+            </div>
+
+            <div class="relative max-md:hidden">
+                <input type="text" name="" id="" class="bg-white py-2  w-80 rounded-full px-4 outline-none">
+                <i class="fas fa-search absolute bottom-2 right-4 text-gray-500"></i>
+            </div>
+            <div class="grid place-items-center max-md:hidden">
+                <img src="photo/profile.jpg" alt="" class="h-12 w-12 rounded-full">
+                <p class="text-sm text-white">Farid</p>
+            </div>
+
+            <div id="sidebarBtn" class="md:hidden text-2xl text-green-500">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    <main class="flex  justify-between ">
+        <!-- sidebar -->
+        <aside class="min-h-screen  w-60 bg-green-950 py-4  max-md:hidden  ">
+            <div class="flex flex-col h-full  gap-10">
+
+                <div class="flex flex-col items-center">
+                    <img src="photo/profile.jpg" alt="" class="h-40 w-40 rounded-full  ">
+                    <h1 class="text-2xl text-white/90 ">Farid</h1>
+                </div>
+
+                <div class=" text-white/90 font-semibold px-5 flex flex-col gap-4">
+
+                    <button onclick="openCreate()" class="flex gap-3 items-center">
+                        <i class="fa-solid fa-user-plus tex-"></i> Create An Account
+                    </button>
+                    <button onclick="openTransfer()" class="flex gap-3 items-center">
+                        <i class="fa-solid fa-paper-plane"></i> Transfer Money
+                    </button>
+
+                    <button onclick="openDeposit()" class="flex gap-3 items-center">
+                        <i class="fa-solid fa-wallet"></i> Deposit
+                    </button>
+
+                    <button class="flex gap-3 items-center">
+                        <i class="fa-solid fa-history"></i>
+                        Transition History
+                    </button>
+
+                </div>
+                <div class="flex flex-col  px-4 gap-2">
+                    <button class="bg-green-800 p-1 rounded-sm shadow-sm cursor-pointer">Setting</button>
+                    <button class="bg-green-600 py-2 rounded-lg cursor-pointer">Log Out</button>
+                </div>
+
+
+
+            </div>
+
+
+        </aside>
+
+        <!-- mobile -->
+        <div id="sidebar"
+            class="bg-green-900/80 h-screen w-64 fixed top-0 -left z-50 py-6 px-4 overflow-y-auto transition-all duration-300 ease-in-out">
+
+            <button onclick="closeNav()" class="absolute top-3 right-3 text-white text-4xl">&times;</button>
+
+            <div class="flex flex-col items-center pt-5 gap-2 pb-6">
+
+                <div class="grid place-items-center">
+                    <img src="photo/profile.jpg" alt="" class="h-18 w-18 rounded-full">
+                    <p class="text-sm text-white font-semibold">Farid</p>
+                </div>
+
+                <div class="relative">
+                    <input type="text" name="" id="" class="bg-white py-2  w-50 rounded-full px-4 outline-none">
+                    <i class="fas fa-search absolute bottom-2 right-4 text-gray-500"></i>
+                </div>
+            </div>
+
+
+            <!-- second part -->
+            <div class="flex flex-col items-center gap-6 text-white font-bold">
+                
+                <button onclick="openCreate()" class="flex gap-3 items-center">
+                    <i class="fa-solid fa-user-plus tex-"></i> Create An Account
+                </button>
+                <button onclick="openTransfer()" class="flex gap-3 items-center">
+                    <i class="fa-solid fa-paper-plane"></i> Transfer Money
+                </button>
+
+                <button onclick="openDeposit()" class="flex gap-3 items-center">
+                    <i class="fa-solid fa-wallet"></i> Deposit
+                </button>
+
+                <button class="flex gap-3 items-center">
+                    <i class="fa-solid fa-history"></i>
+                    Transition History
+                </button>
+
+
+
+                <button class="bg-green-800 p-1 rounded-sm shadow-sm cursor-pointer w-38">Setting</button>
+                <button class="bg-green-600 py-2 rounded-lg cursor-pointer w-38">Log Out</button>
+            </div>
+
+
+
+
+        </div>
+
+
+        <div class=" w-[calc(100%-240px)] max-md:w-[calc(100%-10px)] mx-auto py-10">
+            <div class="h-18 bg-green-200 flex items-center px-7 max-w-[95%] mx-auto">
+                <p>Your account is active</p>
+            </div>
+            <!-- account Number -->
+            <div class=" py-7  grid grid-cols-2 gap-6  px-6 mb-10 max-lg:grid-cols-1">
+
+                <div class="h-30 bg-white rounded-md shadow-sm flex  flex-col items-center justify-center gap-2 p-2">
+                    <h3 class="text-2xl font-semibold">Account Number</h3>
+                    <p class="text-gray-700  text-xl font-semibold tracking-wider">260120111716</p>
+                </div>
+                <div class="h-30 bg-white rounded-md shadow-sm flex  flex-col items-center justify-center gap-2 p-2">
+                    <h3 class="text-2xl font-semibold">Available Balance</h3>
+                    <p class="text-gray-700  text-xl font-semibold tracking-wider">&#8377 53100.0</p>
+                </div>
+            </div>
+            <div>
+                <!-- card -->
+                <div class="grid grid-cols-3 gap-4 px-7 max-lg:grid-cols-2 max-md:grid-cols-1">
+                    <!-- card 1 -->
+                    <div onclick="openCreate()"
+                        class="h-34 bg-white flex flex-col gap-3 items-center justify-center py-3 px-2 shadow-md rounded-md">
+                        <i class="fa-solid fa-user-plus text-3xl text-green-500"></i>
+                        <h5 class="text-xl font-semibold text-gray-700">Create Account</h5>
+                    </div>
+                    <!-- 2 -->
+                    <div onclick="openDeposit()"
+                        class="h-34 bg-white flex flex-col gap-3 items-center justify-center py-3 px-2 shadow-md rounded-md">
+                        <i class="fas fa-wallet text-3xl text-blue-600"></i>
+                        <h5 class="text-xl font-semibold text-gray-700">Deposit</h5>
+                    </div>
+                    <!-- 3 -->
+                    <div onclick="openTransfer()"
+                        class="h-34 bg-white flex flex-col gap-3 items-center justify-center py-3 px-2 shadow-md rounded-md">
+                        <i class="fas fa-paper-plane text-3xl text-green-600"></i>
+                        <h5 class="text-xl font-semibold text-gray-700">Transfer Money</h5>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- MODAL -->
+        <div id="modalcreate" class="fixed bg-black/50  inset-0 hidden  z-50 flex items-center justify-center px-2">
+
+            <!-- Create ACCOUNT -->
+            <div
+                class="bg-gradient-to-br from-green-600 via-green-400 to-green-500 w-full max-w-[500px] shadow-md rounded-lg p-6 relative">
+
+                <!-- Close button -->
+                <button onclick="closeCreate()" class="absolute top-3 right-3 text-white text-4xl">&times;</button>
+
+                <h2 class="text-xl font-bold mb-4 text-white">Create An Account</h2>
+
+                <form action="CreateAccountServlet" method="post" class="flex flex-col gap-6  text-sm font-bold">
+                    <input type="hidden" name="user_id" value="<%= userId %>">
+                    <div class="flex  items-center gap-3">
+                        <label class="w-28 text-white">Initial Deposit</label>
+                        <input type="number" name="balance" placeholder="Enter your Amount" required
+                            class="bg-white py-2 rounded-md px-2 outline-none w-[80%]">
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label class="w-28 text-white">Pin</label>
+                        <input type="text" name="pin" placeholder="Enter your Pin" required
+                            class="bg-white py-2 rounded-md px-2  outline-none w-[80%]">
+                    </div>
+
+
+                    <input type="submit" value="Create Now"
+                        class="bg-green-600 w-[calc(100%-28px)] mx-auto  py-1.5 rounded-md px-2 text-xl text-white cursor-pointer ">
+
+                </form>
+            </div>
+        </div>
+
+
+        <div id="modaldeposit" class="fixed bg-black/50 hidden  inset-0   z-50 flex items-center justify-center px-2">
+
+            <!-- Modal Box -->
+            <!-- Deposit ACCOUNT -->
+            <div
+                class="bg-gradient-to-br from-blue-600 via-blue-400 to-blue-500 w-full max-w-[500px] rounded-lg p-6 relative">
+
+                <!-- Close button -->
+                <button onclick="closeDeposit()" class="absolute top-3 right-3 text-white text-4xl">&times;</button>
+
+                <h2 class="text-xl font-bold mb-4 text-white">Deposit</h2>
+
+                <form action="DepositServlet" method="post" class="flex flex-col gap-6  text-sm font-bold">
+                    <input type="hidden" name="user_id" value="<%= userId %>">
+                    <div class="flex  items-center gap-3">
+                        <label class="w-28 text-white">Amount</label>
+                        <input type="number" name="amount" placeholder="Enter your Amount" required
+                            class="bg-white py-2 rounded-md px-2 outline-none w-[80%]">
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label class="w-28 text-white">Pin</label>
+                        <input type="text" name="pin" placeholder="Enter your Pin" required
+                            class="bg-white py-2 rounded-md px-2  outline-none w-[80%]">
+                    </div>
+
+
+                    <input type="submit" value="Deposit Now"
+                        class="bg-blue-600 w-[calc(100%-28px)] mx-auto  py-1.5 rounded-md px-2 text-xl text-white cursor-pointer ">
+
+                </form>
+            </div>
+
+        </div>
+
+
+        <div id="modaltransfer" class="fixed bg-black/50  inset-0 hidden  z-50 flex items-center justify-center px-2">
+
+            <!-- Modal Box -->
+            <!-- Transfer ACCOUNT -->
+            <div
+                class="bg-gradient-to-br from-orange-600 via-orange-400 to-orange-500 w-full max-w-[500px] rounded-lg p-6 relative">
+
+                <!-- Close button -->
+                <button onclick="closeTransfer()" class="absolute top-3 right-3 text-white text-4xl">&times;</button>
+
+                <h2 class="text-xl font-bold mb-4 text-white">Transfer</h2>
+
+                <form action="CreateAccountServlet" method="post" class="flex flex-col gap-6  text-sm font-bold">
+                    <input type="hidden" name="user_id" value="<%= userId %>">
+                    <div class="flex  items-center gap-3">
+                        <label class="w-38 text-white">Acc No</label>
+                        <input type="text" name="toAccount" placeholder="To Account Number" required
+                            class="bg-white py-2 rounded-md px-2 outline-none w-[80%]">
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label class="w-38 text-white">Amount</label>
+                        <input type="text" name="amount" placeholder="Amount" required
+                            class="bg-white py-2 rounded-md px-2  outline-none w-[80%]">
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <label class="w-38 text-white">Pin</label>
+                        <input type="text" name="pin" placeholder="PIN" required
+                            class="bg-white py-2 rounded-md px-2  outline-none w-[80%]">
+                    </div>
+
+
+                    <input type="submit" value="Transfer Now"
+                        class="bg-orange-600 w-[calc(100%-28px)] mx-auto  py-1.5 rounded-md px-2 text-xl text-white cursor-pointer ">
+
+                </form>
+            </div>
+
+        </div>
+
+
+
+
+    </main>
+    <!-- NAVBAR -->
+
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const sidebarBtn = document.getElementById("sidebarBtn");
+
+        sidebarBtn.addEventListener("click", () => {
+            if (sidebar.classList.contains("-left-64")) {
+                sidebar.classList.remove("-left-64");
+                sidebar.classList.add("left-0");
+                document.body.classList.add("overflow-hidden");   // stop background scroll
+            } else {
+                sidebar.classList.remove("left-0");
+                sidebar.classList.add("-left-64");
+                document.body.classList.remove("overflow-hidden"); // restore scroll
+            }
+        });
+
+        // close navbar
+
+        function closeNav() {
+            sidebar.classList.remove("left-0");
+            sidebar.classList.add("-left-64");
+            document.body.classList.remove("overflow-hidden");
+        }
+
+
+        function openCreate() {
+            document.getElementById("modalcreate").classList.remove("hidden");
+            document.body.classList.add("overflow-hidden");
+        }
+
+        function closeCreate() {
+            document.getElementById("modalcreate").classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+        }
+
+
+        function openDeposit() {
+            document.getElementById("modaldeposit").classList.remove("hidden");
+            document.body.classList.add("overflow-hidden");
+        }
+
+        function closeDeposit() {
+            document.getElementById("modaldeposit").classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+        }
+
+
+        function openTransfer() {
+            document.getElementById("modaltransfer").classList.remove("hidden");
+            document.body.classList.add("overflow-hidden");
+        }
+
+        function closeTransfer() {
+            document.getElementById("modaltransfer").classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+        }
+
+    </script>
+</body>
+
+</html>
